@@ -11,14 +11,13 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
         android:fontFamily="@font/alata"
         android:text="What News Do You Want to Verify?"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.302" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextText"
@@ -31,16 +30,80 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.137" />
+        app:layout_constraintVertical_bias="0.082" />
 
     <Button
-        android:id="@+id/button_main"
+        android:id="@+id/verify_true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Verify"
+        android:layout_marginTop="192dp"
+        android:text="Verify (True)"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/verify_false"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verify_text1"
+        app:layout_constraintVertical_bias="0.512" />
+
+    <TextView
+        android:id="@+id/verify_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="sans-serif-black"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+
+    <Button
+        android:id="@+id/verify_false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="192dp"
+        android:layout_marginEnd="44dp"
+        android:text="Verify (False)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verify_text1"
+        app:layout_constraintVertical_bias="0.512" />
+
+    <ImageView
+        android:id="@+id/real_img"
+        android:layout_width="96dp"
+        android:layout_height="124dp"
+        app:layout_constraintBottom_toTopOf="@+id/verify_text2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText"
-        app:layout_constraintVertical_bias="0.344" />
+        app:layout_constraintTop_toBottomOf="@+id/verify_text1"
+        app:layout_constraintVertical_bias="0.269"
+        app:srcCompat="@drawable/tick" />
+
+    <TextView
+        android:id="@+id/verify_text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="192dp"
+        android:fontFamily="sans-serif-medium"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/fake_img"
+        android:layout_width="127dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/verify_text2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verify_text1"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/wrong" />
 </androidx.constraintlayout.widget.ConstraintLayout>
