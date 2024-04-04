@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Dashboard extends AppCompatActivity {
 
+    //variables
     private Button button;
 
     @Override
@@ -21,10 +22,14 @@ public class Dashboard extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_dashboard);
 
-        button = findViewById(R.id.button_dash);
+        button = findViewById(R.id.button_dash); //fetching button object from ID
+
+        //function to be executed on button click
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //Intent is used to move between different screens (or 'activities')
                 Intent intent = new Intent(Dashboard.this, MainApp.class);
                 startActivity(intent);
             }

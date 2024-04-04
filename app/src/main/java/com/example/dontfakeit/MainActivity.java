@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        //Fetching Animations
+        //Fetching Animations (top_animation.xml & bottom_animation.xml)
         topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
         bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
 
@@ -40,9 +40,10 @@ public class MainActivity extends AppCompatActivity {
         text = findViewById(R.id.textView);
 
         //Applying Animations
-        image.setAnimation(topAnim);
-        text.setAnimation(bottomAnim);
+        image.setAnimation(topAnim); //top to bottom animation for image/logo
+        text.setAnimation(bottomAnim); //bottom to top animation for text
 
+        //function to automatically move to next screen (dashboard screen)
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
