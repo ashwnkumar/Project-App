@@ -1,6 +1,7 @@
 package com.example.dontfakeit;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
@@ -8,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,12 +19,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int splashScreen = 5000;
-
     //Variables
-    Animation topAnim, bottomAnim;
-    ImageView image;
-    TextView text;
+    private static int splashScreenDuration = 5000;
+    VideoView splashVideo;
+
+    // Animation topAnim, bottomAnim;
+    //ImageView image;
+    //TextView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,16 +35,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Fetching Animations (top_animation.xml & bottom_animation.xml)
-        topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
-        bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+        //topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
+        //bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
 
         //Fetching Image and Text
-        image = findViewById(R.id.imageView);
-        text = findViewById(R.id.textView);
+        //image = findViewById(R.id.imageView);
+        //text = findViewById(R.id.textView);
 
         //Applying Animations
-        image.setAnimation(topAnim); //top to bottom animation for image/logo
-        text.setAnimation(bottomAnim); //bottom to top animation for text
+        //image.setAnimation(topAnim); //top to bottom animation for image/logo
+        //text.setAnimation(bottomAnim); //bottom to top animation for text
+
+        //Fetching splash screen video
+        splashVideo = findViewById(R.id.splash_video);
+
+        Uri videoUri = Uri.parse("android.resource://com.example.dontfakeit/" + R.raw.splash_video);
+
+        splashVideo.setVideoURI(videoUri);
+        splashVideo.start();
 
         //function to automatically move to next screen (dashboard screen)
         new Handler().postDelayed(new Runnable() {
@@ -51,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, splashScreen);
+        }, splashScreenDuration);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

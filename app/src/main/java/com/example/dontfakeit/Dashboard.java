@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,7 @@ public class Dashboard extends AppCompatActivity {
 
     //variables
     private Button button;
+    ImageView dashImg1, dashImg2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +24,9 @@ public class Dashboard extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_dashboard);
 
-        button = findViewById(R.id.button_dash); //fetching button object from ID
+        button = findViewById(R.id.button); //fetching button object from ID
+        dashImg1 = findViewById(R.id.dash_Img1);
+        dashImg2 = findViewById(R.id.dash_Img2);
 
         //function to be executed on button click
         button.setOnClickListener(new View.OnClickListener() {

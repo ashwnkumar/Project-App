@@ -7,39 +7,41 @@
     android:layout_height="match_parent"
     tools:context=".Dashboard">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="343dp"
-        android:layout_height="384dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.103"
-        app:srcCompat="@drawable/logo_dashboard_2" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="354dp"
-        android:layout_height="94dp"
-        android:text="A one stop application to verify any news you find suspicious. Just enter the title and voila! "
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445" />
-
     <Button
-        android:id="@+id/button_dash"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Let's Begin"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="36dp"
+        android:text="Let's Get Started"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.334" />
+        app:layout_constraintTop_toBottomOf="@+id/dash_Img2" />
+
+    <ImageView
+        android:id="@+id/dash_Img2"
+        android:layout_width="306dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginEnd="53dp"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dash_Img1"
+        app:srcCompat="@drawable/dash2" />
+
+    <ImageView
+        android:id="@+id/dash_Img1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/dash_Img2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dash1" />
 </androidx.constraintlayout.widget.ConstraintLayout>
