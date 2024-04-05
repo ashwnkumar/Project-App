@@ -1,10 +1,13 @@
 package com.example.dontfakeit;
 
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,9 +18,13 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainApp extends AppCompatActivity {
 
     //declaring variables
-    ImageView realImg, fakeImg;
-    TextView verifyText1,  verifyText2;
-    Button verifyBtnTrue, verifyBtnFalse;
+    private ImageView realImg, fakeImg;
+    private TextView verifyText1,  verifyText2;
+    private Button verifyBtnTrue;
+    private View rootView;
+    private boolean isTrue = false;
+    private EditText inputText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,44 +32,64 @@ public class MainApp extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_app);
 
-        //fetching respective image and text objects using their IDs
+
         realImg = findViewById(R.id.real_img);
         fakeImg = findViewById(R.id.fake_img);
+        rootView = findViewById(android.R.id.content);
 
         verifyText1= findViewById(R.id.verify_text1);
         verifyText2= findViewById(R.id.verify_text2);
+        inputText = findViewById(R.id.textBox);
 
-        verifyBtnTrue= findViewById(R.id.verify_true);
-        verifyBtnFalse= findViewById(R.id.verify_false);
+        verifyBtnTrue = findViewById(R.id.verifyButton);
 
         //'true' and 'fake' news images disabled at start
         realImg.setVisibility(View.INVISIBLE);
         fakeImg.setVisibility(View.INVISIBLE);
 
-        //function for executing (dummy) output in case of news being true
-        verifyBtnTrue.setOnClickListener(new View.OnClickListener() {
+        rootView.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                realImg.setVisibility(View.VISIBLE); //making 'true' wala image visible
+            public boolean onTouch(View v, MotionEvent event) {
+                float touchX = event.getX();
 
-                //text fields are set with no text by default. 'setText()' function adds text into them
-                verifyText1.setText("This is True!!");
-                verifyText2.setText("This really happened and this news is accurate.");
-
-                fakeImg.setVisibility(View.INVISIBLE); //disabling 'fake' wala image
-
+                if(touchX < v.getWidth() / 2) {
+                    isTrue = true;
+                } else {
+                    isTrue = false;
+                }
+                return false;
             }
         });
 
-        //function for executing (dummy) output in case of news being false
-        verifyBtnFalse.setOnClickListener(new View.OnClickListener() {
+        verifyBtnTrue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fakeImg.setVisibility(View.VISIBLE); //making 'fake' wala image visible
-                verifyText1.setText("Uh Oh!!");
-                verifyText2.setText("It seems that your news sources have been tampered with. This is fake");
-                realImg.setVisibility(View.INVISIBLE); //disabling 'true' wala image
 
+                String input = inputText.getText().toString().trim();
+                if (input.isEmpty()) {
+                    Toast.makeText(MainApp.this, "Please Enter News First", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (isSentence(input)) {
+                    if (isTrue) {
+                        realImg.setVisibility(View.VISIBLE);
+                        verifyText1.setText("This is True!!");
+                        verifyText2.setText("This really happened and this news is accurate.");
+                        fakeImg.setVisibility(View.INVISIBLE);
+                    } else {
+                        fakeImg.setVisibility(View.VISIBLE);
+                        verifyText1.setText("Uh Oh!!");
+                        verifyText2.setText("It seems that your news sources have been tampered with. This is fake");
+                        realImg.setVisibility(View.INVISIBLE);
+                    }
+                } else {
+                    Toast.makeText(MainApp.this, "Please enter a valid sentence", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            private boolean isSentence (String text) {
+                return text.matches(".*\\s+.*") && text.matches(".*[a-zA-Z]+.*");
             }
         });
 

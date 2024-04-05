@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/textBox"
         android:layout_width="316dp"
         android:layout_height="154dp"
         android:ems="10"
@@ -33,17 +33,16 @@
         app:layout_constraintVertical_bias="0.082" />
 
     <Button
-        android:id="@+id/verify_true"
+        android:id="@+id/verifyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="192dp"
-        android:text="Verify (True)"
+        android:text="Verify "
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/verify_false"
-        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verify_text1"
-        app:layout_constraintVertical_bias="0.512" />
+        app:layout_constraintTop_toBottomOf="@+id/verify_text2"
+        app:layout_constraintVertical_bias="0.333" />
 
     <TextView
         android:id="@+id/verify_text1"
@@ -56,19 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
-
-    <Button
-        android:id="@+id/verify_false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="44dp"
-        android:text="Verify (False)"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verify_text1"
-        app:layout_constraintVertical_bias="0.512" />
+        app:layout_constraintTop_toBottomOf="@+id/textBox" />
 
     <ImageView
         android:id="@+id/real_img"
