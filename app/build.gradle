@@ -14,11 +14,17 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file('apikey.properties').newDataInputStream())
+        buildConfigField 'String', 'YOU_COM_API_KEY', properties['YOU_COM_API_KEY']
+        buildConfigField 'String', 'OPENAI_API_KEY', properties['OPENAI_API_KEY']
+
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            minifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -32,7 +38,7 @@ android {
 }
 
 dependencies {
-
+    implementation libs.okhttp
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
