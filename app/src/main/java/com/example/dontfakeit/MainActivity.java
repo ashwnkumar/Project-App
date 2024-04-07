@@ -23,9 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private static int splashScreenDuration = 5000;
     VideoView splashVideo;
 
-    // Animation topAnim, bottomAnim;
-    //ImageView image;
-    //TextView text;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,19 +32,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        //Fetching Animations (top_animation.xml & bottom_animation.xml)
-        //topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
-        //bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
 
-        //Fetching Image and Text
-        //image = findViewById(R.id.imageView);
-        //text = findViewById(R.id.textView);
-
-        //Applying Animations
-        //image.setAnimation(topAnim); //top to bottom animation for image/logo
-        //text.setAnimation(bottomAnim); //bottom to top animation for text
-
-        //Fetching splash screen video
         splashVideo = findViewById(R.id.splash_video);
 
         Uri videoUri = Uri.parse("android.resource://com.example.dontfakeit/" + R.raw.splash_video);

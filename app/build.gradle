@@ -6,6 +6,7 @@ android {
     namespace = "com.example.dontfakeit"
     compileSdk = 34
 
+
     defaultConfig {
         applicationId = "com.example.dontfakeit"
         minSdk = 26
@@ -14,12 +15,6 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        Properties properties = new Properties()
-        properties.load(project.rootProject.file('apikey.properties').newDataInputStream())
-        buildConfigField 'String', 'YOU_COM_API_KEY', properties['YOU_COM_API_KEY']
-        buildConfigField 'String', 'OPENAI_API_KEY', properties['OPENAI_API_KEY']
-
     }
 
     buildTypes {
@@ -35,7 +30,12 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
 }
+
 
 dependencies {
     implementation libs.okhttp
